@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 using System.Threading;
 using jbcarreon123.WebNowPlayingPlugin.Actions;
-using Windows.Media.Control;
-using SuchByte.MacroDeck;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Variables;
@@ -42,11 +40,13 @@ namespace jbcarreon123.WebNowPlayingPlugin
                     new PlayPauseAction(),
                     new PreviousAction(),
                     new NextAction(),
+                    new Rewind10SecondsAction(),
+                    new Forward10SecondsAction(),
                     new ShuffleAction(),
                     new RepeatAction()
                 };
                 Init();
-                _statusIcon = new StatusIcon();
+                _statusIcon = new StatusIcon(this);
             }
             catch (Exception e)
             {
@@ -59,7 +59,7 @@ namespace jbcarreon123.WebNowPlayingPlugin
             var assembly = Assembly.GetExecutingAssembly().GetName().Version;
             string version = $"{assembly.Major}.{assembly.Minor}.{assembly.Build}";
             WNPRedux.Start(8698, version, ((type, s) => Logger((int)type, s)));
-            WNPReduxNative.Start(8698);
+            NativeBridgeLoader.Start(8698, this);
 
             var worker = new BackgroundWorker();
             worker.DoWork += worker_DoWork;

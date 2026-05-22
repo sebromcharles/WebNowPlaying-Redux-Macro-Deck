@@ -16,10 +16,11 @@ namespace jbcarreon123.WebNowPlayingPlugin
         private ContentSelectorButton statusButton = new ContentSelectorButton();
         private MainWindow mainWindow;
         private readonly ToolTip _statusToolTip;
-        private readonly Main main = new Main();
+        private readonly Main main;
 
-        public StatusIcon()
+        public StatusIcon(Main main)
         {
+            this.main = main;
             _statusToolTip = new ToolTip();
 
             MacroDeck.OnMainWindowLoad += MacroDeck_OnMainWindowLoad;
@@ -67,7 +68,7 @@ namespace jbcarreon123.WebNowPlayingPlugin
             }
             catch (Exception e)
             {
-                MacroDeckLogger.Warning(PluginInstance.Main, $"{e}");
+                MacroDeckLogger.Warning(main, $"{e}");
             }  
         }
     }
