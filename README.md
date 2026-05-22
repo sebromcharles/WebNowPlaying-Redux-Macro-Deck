@@ -22,6 +22,8 @@ https://jbcarreon123.github.io/docs/md2/wnpl
 | Play/Pause | Play/Pauses the current track |
 | Next | Next track |
 | Previous | Previous track |
+| Forward | Advance the current track by a configured number of seconds |
+| Rewind | Rewind the current track by a configured number of seconds |
 | Shuffle | Toggle shuffle |
 | Repeat | Toggle repeat |
 

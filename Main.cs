@@ -40,8 +40,8 @@ namespace jbcarreon123.WebNowPlayingPlugin
                     new PlayPauseAction(),
                     new PreviousAction(),
                     new NextAction(),
-                    new Rewind10SecondsAction(),
-                    new Forward10SecondsAction(),
+                    new RewindXSecondsAction(),
+                    new ForwardXSecondsAction(),
                     new ShuffleAction(),
                     new RepeatAction()
                 };
