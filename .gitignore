@@ -1,4 +1,6 @@
 /.vscode
 /bin
 /obj
+NativeBridge/bin/
+NativeBridge/obj/
 /.vs/jbcarreon123.WebNowPlayingPlugin
